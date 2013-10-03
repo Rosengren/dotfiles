@@ -2,10 +2,5 @@
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"font_size": 10,
 	"spell_check": false,
-	"auto_complete_commit_on_tab": false,
-	"tab_completion": false,
-	"ignored_packages":
-	[
-	],
-
+	"scroll_past_end": true
 }
