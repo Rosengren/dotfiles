@@ -24,10 +24,15 @@
 	{ "keys": ["tab"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
 	    [
 	    	// Tab out of quotes, and closing brackets
-	        { "key": "following_text", "operator": "regex_contains", "operand": "^[>')}\"\\]]", "match_all": true }
+	        { "key": "following_text", "operator": "regex_contains", "operand": "^[>')}\"\\]]", "match_all": true },
+			{"key": "selection_empty"}
+
 	    ]   
   	},
 
   	// New file/tab
-  	{ "keys": ["ctrl+t"], "command": "new_file" }
+  	{ "keys": ["ctrl+t"], "command": "new_file" },
+
+  	// Shortcut for using goto definition
+  	{ "keys": ["ctrl+d"], "command": "goto_definition" }, 
 ]

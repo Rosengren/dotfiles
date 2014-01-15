@@ -11,3 +11,7 @@ Custom configurations and settings for vim and sublime text for Mac OSX and Wind
 + Sublime Text User Settings
   + Windows
   + Mac OSX
+
++ Sublime Text custom Keymaps
+  + Windows
+  + Mac OSX
