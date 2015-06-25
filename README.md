@@ -1,12 +1,18 @@
-Dotfiles
-========
+#Dotfiles
 Custom configurations and settings for vim and sublime text for Mac OSX and Windows
 
-+ vim configurations
-  + color schemes
-  + syntax
-  + search settings
-  + other settings
+###Initial Setup
++ Clone repository into home directory (~/)
+
+### Setting up vim configuration
++ Add the following commands
+
+	mkdir ~/.vim/
+	ln -s dotfiles/vim ~/.vim/
+	ln -s dotfiles/vim/.vimrc ~/.vimrc
+
++ Note: you must delete the .vimrc if it already exists
+
 
 + Sublime Text User Settings
   + Windows
