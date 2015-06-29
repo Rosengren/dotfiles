@@ -1,9 +1,10 @@
 set nocompatible
 " filetype off
 
-""""""""""""""""""""
-" Plugins
-""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""
+" Plugins 
+"""""""""""""""""""""""""""""""""
 
 " Disable plugins
 let g:pathogen_disabled = ['vim-airline']
@@ -16,7 +17,17 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 
-" set encoding
+"""""""""""""""""""""""""""""""""
+" General
+"""""""""""""""""""""""""""""""""
+
+" Keep 100 lines of history
+set history=100
+
+" Show cursor position
+set ruler
+
+" Set encoding
 set encoding=utf-8
 
 " Fix backspace (behaves like you would expect)
