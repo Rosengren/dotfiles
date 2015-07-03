@@ -110,5 +110,16 @@ function! SkipClosingParentheses()
 	return stridx(']})', current_char)==-1 ? "\t" : "\<Right>"
 endfunction
 
+"""""""""""""""""""""""""""""""""""
+" Misc
+"""""""""""""""""""""""""""""""""""
+
 " Enable pathogen plugins
 execute pathogen#infect()
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"""""""""""""""""""""""""""""""""""
+" Shortcut Mappings
+"""""""""""""""""""""""""""""""""""
+
+:nmap <C-S-P> :CtrlP
