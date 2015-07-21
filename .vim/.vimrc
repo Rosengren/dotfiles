@@ -21,11 +21,18 @@ map <C-n> :NERDTreeToggle<CR>
 " General
 """""""""""""""""""""""""""""""""
 
+" Make tabs, trailing whitespace, and non-breaking spaces visible 
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
 " Don't create swap files
 set noswapfile
 
 " Keep 100 lines of history
 set history=100
+
+" adjust default Ctrl-U and Ctrl-D paging
+"set scroll=50
 
 " Show cursor position
 set ruler
