@@ -21,6 +21,9 @@ map <C-n> :NERDTreeToggle<CR>
 " General
 """""""""""""""""""""""""""""""""
 
+" Don't create swap files
+set noswapfile
+
 " Keep 100 lines of history
 set history=100
 
@@ -72,6 +75,9 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""
 " Colors and Fonts
 """""""""""""""""""""""""""""""""
+
+" Highlight cursor row
+set cursorline
 
 " Enable syntax highlighting
 syntax on
