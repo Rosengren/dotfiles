@@ -16,7 +16,7 @@ DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="true"
 
 # plugins can be found in ~/.oh-my-zsh/plugins/*
-plugins=(git, brew)
+plugins=(git, vi-mode)
 
 # User configuration
 

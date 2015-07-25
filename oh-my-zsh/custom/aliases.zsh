@@ -16,3 +16,4 @@ alias undo="reset --soft HEAD~1"
 
 # Oh My Zsh
 alias zshtheme="vim ~/.oh-my-zsh/custom/themes/simpleton.zsh-theme && source ~/.zshrc"
+alias zc="vim ~/.zshrc && source ~/.zshrc"
