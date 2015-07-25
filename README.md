@@ -1,5 +1,5 @@
 #Dotfiles
-Custom configurations and settings for vim and sublime text for Mac OSX and Windows
+Custom configurations and settings for vim, sublime text and oh-my-zsh
 
 ###Initial Setup
 + Clone repository into home directory (~/)
@@ -7,17 +7,9 @@ Custom configurations and settings for vim and sublime text for Mac OSX and Wind
 ### Setting up vim configuration
 + Add the following commands
 
-	mkdir ~/.vim/
-	ln -s dotfiles/vim ~/.vim/
-	ln -s dotfiles/vim/.vimrc ~/.vimrc
+- mkdir ~/.vim/
+- ln -s dotfiles/.vim ~/.vim/
+- ln -s dotfiles/.vim/vimrc ~/.vimrc
+- ln -s dotfiles/zshrc ~/.zshrc
 
-+ Note: you must delete the .vimrc if it already exists
-
-
-+ Sublime Text User Settings
-  + Windows
-  + Mac OSX
-
-+ Sublime Text custom Keymaps
-  + Windows
-  + Mac OSX
++ Note: you must delete the .vimrc file if it already exists

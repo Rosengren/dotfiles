@@ -109,19 +109,18 @@ inoremap	( 	()<Left>
 inoremap <expr> )	strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 
 " Tab over brackets/parentheses/square brackets
-inoremap <expr> <Tab> SkipClosingParentheses()
+"inoremap <expr> <Tab> SkipClosingParentheses()
 
-function! SkipClosingParentheses()
-	let line = getLine('.')
-	let current_char = line[col('.')-1]
+"function! SkipClosingParentheses()
+"let line = getLine('.')
+    "let current_char = line[col('.')-1]
 
-	" ignore EOL
-	if col('.') == col('$')
-		return "\t"
-	end
-
-	return stridx(']})', current_char)==-1 ? "\t" : "\<Right>"
-endfunction
+    "" ignore EOL
+    "if col('.') == col('$')
+        "return "\t"
+    "end
+    "return stridx(']})', current_char)==-1 ? "\t" : "\<Right>"
+"endfunction
 
 """""""""""""""""""""""""""""""""""
 " Misc
@@ -136,3 +135,5 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 """""""""""""""""""""""""""""""""""
 
 :nmap <C-S-P> :CtrlP
+:let mapleader = ";"
+map <Leader> <Plug>(easymotion-prefix)
