@@ -16,6 +16,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
+nmap <C-m> :TagbarToggle<CR>
+:nmap <C-S-P> :CtrlP
 
 """""""""""""""""""""""""""""""""
 " General
@@ -94,6 +96,20 @@ colorscheme molokai
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
+" Set matching bracket color to differentiate from opening bracket
+highlight MatchParen cterm=bold ctermfg=cyan ctermbg=black
+
+" vim-airlines font
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.space = "\ua0"
+let g:airline_powerline_fonts = 1
+let g:molokai_original = 1
+
+let g:airline_theme = "simple" " Another good theme is: jellybeans
+
 """""""""""""""""""""""""""""""""""
 " Functions for improving workflow
 """""""""""""""""""""""""""""""""""
@@ -134,6 +150,22 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Shortcut Mappings
 """""""""""""""""""""""""""""""""""
 
-:nmap <C-S-P> :CtrlP
+" Indent with Tab in visual mode
+:vmap <tab> >
+:vmap <S-tab> <
+
+" Tab next/prev with vim arrows
+map <C-l> gt
+map <c-h> gT
+
+" Save file
+map <C-s> :w<CR>
+
+" Set Leader Key
 :let mapleader = ";"
+
+" use single leader for easy motion
+" Disable this if conflicts occur
+" with other packages that use the
+" leader key
 map <Leader> <Plug>(easymotion-prefix)
