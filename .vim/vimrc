@@ -1,30 +1,10 @@
+" vim:fdm=marker:ts=4:sw=4:et:
+
+" Section: General {{{1
+"""""""""""""""""""""""""""""""""
 set nocompatible
-" filetype off
+filetype off
 
-
-"""""""""""""""""""""""""""""""""
-" Plugins 
-"""""""""""""""""""""""""""""""""
-
-" Disable plugins
-let g:pathogen_disabled = ['vim-airline']
-
-" Autoload Nerd Tree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p " move cursor to opened file
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-map <C-n> :NERDTreeToggle<CR>
-nmap <C-m> :TagbarToggle<CR>
-:nmap <C-S-P> :CtrlP
-
-"""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""
-
-" Make tabs, trailing whitespace, and non-breaking spaces visible 
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
 " Don't create swap files
@@ -65,9 +45,27 @@ set magic
 set showmatch
 set noerrorbells
 
+" Section: Plugins  {{{1
 """""""""""""""""""""""""""""""""
-" Text, Tab and Indent Related
+
+" Disable plugins
+let g:pathogen_disabled = ['']
+
+" Autoload Nerd Tree
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p " move cursor to opened file
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <C-n> :NERDTreeToggle<CR>
+map <C-m> :TagbarToggle<CR>
+:nmap <C-S-P> :CtrlP
+
+" Section: Text, Tab and Indentation {{{1
 """""""""""""""""""""""""""""""""
+
+" Make tabs, trailing whitespace, and non-breaking spaces visible 
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
 set expandtab
 set smarttab
@@ -81,8 +79,7 @@ set wrap " wrap lines
 
 filetype plugin indent on
 
-"""""""""""""""""""""""""""""""""
-" Colors and Fonts
+" Section: Colors and Fonts {{{1
 """""""""""""""""""""""""""""""""
 
 " Highlight cursor row
@@ -110,8 +107,13 @@ let g:molokai_original = 1
 
 let g:airline_theme = "simple" " Another good theme is: jellybeans
 
-"""""""""""""""""""""""""""""""""""
-" Functions for improving workflow
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+" Section: Functions for improving workflow {{{1
 """""""""""""""""""""""""""""""""""
 
 " Automatically add closing curly brace
@@ -121,33 +123,17 @@ inoremap {{	{
 inoremap {}	{}
 
 " add closing parentheses
-inoremap	( 	()<Left>
+inoremap ( 	()<Left>
 inoremap <expr> )	strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 
-" Tab over brackets/parentheses/square brackets
-"inoremap <expr> <Tab> SkipClosingParentheses()
-
-"function! SkipClosingParentheses()
-"let line = getLine('.')
-    "let current_char = line[col('.')-1]
-
-    "" ignore EOL
-    "if col('.') == col('$')
-        "return "\t"
-    "end
-    "return stridx(']})', current_char)==-1 ? "\t" : "\<Right>"
-"endfunction
-
-"""""""""""""""""""""""""""""""""""
-" Misc
+" Section: Miscellaneous {{{1
 """""""""""""""""""""""""""""""""""
 
 " Enable pathogen plugins
 execute pathogen#infect()
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-"""""""""""""""""""""""""""""""""""
-" Shortcut Mappings
+" Section: Key Mappings {{{1
 """""""""""""""""""""""""""""""""""
 
 " Indent with Tab in visual mode
@@ -164,8 +150,13 @@ map <C-s> :w<CR>
 " Set Leader Key
 :let mapleader = ";"
 
+:nmap <C-S-P> :CtrlP
+
 " use single leader for easy motion
 " Disable this if conflicts occur
 " with other packages that use the
 " leader key
 map <Leader> <Plug>(easymotion-prefix)
+
+"autocmd FileType javascript,css,java nnoremap <silent> ,; :call cosco#commaOrSemiColon()<CR>
+"autocmd FileType javascript,css,java inoremap <silent> ,; <c-o>:call cosco#commaOrSemiColon()<CR>
