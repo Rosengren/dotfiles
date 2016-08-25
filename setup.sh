@@ -210,18 +210,6 @@ main() {
     fi
 
   done
-
-  # Symlink online-check.sh
-  ln -fs $HOME/dotfiles/lib/online-check.sh $HOME/online-check.sh
-
-  # Write out current crontab
-  crontab -l > mycron
-  # Echo new cron into cron file
-  echo "* * * * * ~/online-check.sh" >> mycron
-  # Install new cron file
-  crontab mycron
-  rm mycron
-
 }
 
 install_zsh () {
@@ -258,7 +246,7 @@ install_zsh () {
 }
 
 main
-# install_zsh
+install_zsh
 
 ###############################################################################
 # Zsh                                                                         #
