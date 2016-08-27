@@ -7,6 +7,8 @@ export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/s
 
 export LANG=en_US.UTF-8
 
+export EDITOR=/usr/bin/vim
+
 ZSH_THEME="kevin"
 
 # _ and - will be interchangeable with autocompletion
@@ -19,7 +21,7 @@ ENABLE_CORRECTION="true"
 plugins=(fabric brew history git-flow zsh-syntax-highlighting vi-mode)
 
 # Load the shell dotfiles
-for file in $HOME/.{shell_exports,shell_aliases,shell_functions,shell_config}; do
+for file in $HOME/.{shell_aliases,shell_config}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

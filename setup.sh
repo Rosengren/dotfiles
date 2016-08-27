@@ -153,25 +153,14 @@ echo "done"
 
 
 declare -a FILES_TO_SYMLINK=(
-
-  'shell/shell_aliases'
-  'shell/shell_config'
-  'shell/shell_exports'
-  'shell/shell_functions'
-  'shell/bash_profile'
-  'shell/bashrc'
   'shell/zshrc'
-  'shell/ackrc'
-  'shell/curlrc'
-  'shell/inputrc'
   'shell/vimrc'
-
   'git/gitconfig'
   'git/gitignore'
-
+  'vim'
 )
 
-# FILES_TO_SYMLINK="$FILES_TO_SYMLINK .vim bin" # add in vim and the binaries
+# FILES_TO_SYMLINK="$FILES_TO_SYMLINK .vim" # add in vim
 
 # Move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 
@@ -192,11 +181,20 @@ main() {
 
   for i in ${FILES_TO_SYMLINK[@]}; do
 
+    if [[ "$i" == *\/* ]]; then
+      targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+    else
+      targetFile="$HOME/.$i"
+    fi
+
     sourceFile="$(pwd)/$i"
-    targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
     if [ ! -e "$targetFile" ]; then
-      execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+      if [ -d "$targetFile" ]; then
+        execute "ln -fs $sourceFile/ $targetFile" "$targetFile/ → $sourceFile"
+      else
+        execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+      fi
     elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
       print_success "$targetFile → $sourceFile"
     else
@@ -254,6 +252,7 @@ install_zsh
 
 # Install Zsh settings
 ln -s ~/dotfiles/zsh/themes/kevin.zsh-theme $HOME/.oh-my-zsh/themes
+ln -s ~/dotfiles/zsh/aliases.zsh $HOME/.oh-my-zsh/custom
 
 # Reload zsh settings
 source ~/.zshrc

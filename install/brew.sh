@@ -38,14 +38,9 @@ brew upgrade --all
 #   your filesystem.
 
 apps=(
-    coreutils
-    moreutils
-    findutils
     git
     git-extras
     hub
-    gnu-sed --with-default-names
-    grep --with-default-names
     homebrew/completions/brew-cask-completion
     homebrew/dupes/grep
     homebrew/dupes/openssh
