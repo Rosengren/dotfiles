@@ -256,3 +256,10 @@ ln -s ~/dotfiles/zsh/aliases.zsh $HOME/.oh-my-zsh/custom
 
 # Reload zsh settings
 source ~/.zshrc
+
+###############################################################################
+# Vim                                                                         #
+###############################################################################
+
+# Pull down all vim plugins
+git submodule update --init
