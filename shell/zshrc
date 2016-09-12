@@ -20,6 +20,9 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(fabric brew history git-flow zsh-syntax-highlighting vi-mode)
 
+# Initialize autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 # Load the shell dotfiles
 for file in $HOME/.{shell_aliases,shell_config}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";

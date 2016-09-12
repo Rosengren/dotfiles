@@ -251,8 +251,8 @@ install_zsh
 ###############################################################################
 
 # Install Zsh settings
-ln -s ~/dotfiles/zsh/themes/kevin.zsh-theme $HOME/.oh-my-zsh/themes
-ln -s ~/dotfiles/zsh/aliases.zsh $HOME/.oh-my-zsh/custom
+ln -fs ~/dotfiles/zsh/themes/kevin.zsh-theme $HOME/.oh-my-zsh/themes
+ln -fs ~/dotfiles/zsh/aliases.zsh $HOME/.oh-my-zsh/custom
 
 # Reload zsh settings
 source ~/.zshrc

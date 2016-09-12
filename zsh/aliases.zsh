@@ -26,6 +26,10 @@ alias docs="cd ~/Documents"
 alias down="cd ~/Downloads"
 
 alias na="vim ~/dotfiles/zsh/aliases.zsh"
+alias nla="vim ~/.zsh.local" # New local alias
+alias nv="vim ~/dotfiles/shell/vimrc"
+alias nz="vim ~/dotfiles/shell/zshrc"
+
 alias hosts='sudo $EDITOR /etc/hosts'
 
 
@@ -33,7 +37,7 @@ alias hosts='sudo $EDITOR /etc/hosts'
 # Git
 ###########################################
 
-alias l="ls -lF"
+alias l="ls -laF"
 alias ls="ls -G"
 alias la="ls -al"
 alias lsd='ls -ld -- */' # only list directories
@@ -104,7 +108,9 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to 
 alias cask="brew cask"
 
 
-trash () { command mv "$@" ~/.Trash ; }
+alias trash="rmtrash" # rmtrash can be installed using brew
+alias del="rmtrash"
+
 ###########################################
 # Make Terminal Better
 ###########################################

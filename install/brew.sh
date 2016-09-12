@@ -43,7 +43,6 @@ apps=(
     hub
     homebrew/completions/brew-cask-completion
     homebrew/dupes/grep
-    homebrew/dupes/openssh
     mtr
     autojump
     python
@@ -53,6 +52,7 @@ apps=(
     wget
     wifi-password
     diff-so-fancy
+    rmtrash
 )
 
 brew install "${apps[@]}"
